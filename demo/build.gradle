@@ -4,19 +4,19 @@ plugins {
 }
 
 java {
-    sourceCompatibility = "1.6"
+    sourceCompatibility = "1.7"
     targetCompatibility = "1.8"
 }
 
 repositories {
-    mavenCentral()
+    mavenLocal()
 }
 
 publishing {
     publications {
         maven(MavenPublication) {
-            groupId = 'com.epam.util'
-            artifactId = 'util'
+            groupId = 'com.epam.demo'
+            artifactId = 'demo'
             version = '1.00'
             from components.java
         }
@@ -24,19 +24,14 @@ publishing {
 }
 
 dependencies {
-    implementation 'org.apache.commons:commons-lang3:3.10'
+    implementation project(path: ':utils')
 }
-//add Apache Apache Commons Lang 3.10 (or higher) dependency
 
 
 jar {
     manifest {
-        attributes('Implementation-Title':'util',
+        attributes('Implementation-Title':'demo',
                 'Implementation-Version':'1.0'
         )
-
-
-        //provide manifest with such attributes as 'Implementation-Title', 'Implementation-Version'
-        version = '1.0'
     }
 }
