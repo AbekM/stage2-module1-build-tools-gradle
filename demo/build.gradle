@@ -1,7 +1,42 @@
-//add everything here
-
-test {
-    useJUnitPlatform()
+plugins {
+    id 'java'
+    id 'maven-publish'
 }
 
-compileJava {}.dependsOn(':utils:publishToMavenLocal')
+java {
+    sourceCompatibility = "1.6"
+    targetCompatibility = "1.8"
+}
+
+repositories {
+    mavenCentral()
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'com.epam.util'
+            artifactId = 'util'
+            version = '1.00'
+            from components.java
+        }
+    }
+}
+
+dependencies {
+    implementation 'org.apache.commons:commons-lang3:3.10'
+}
+//add Apache Apache Commons Lang 3.10 (or higher) dependency
+
+
+jar {
+    manifest {
+        attributes('Implementation-Title':'util',
+                'Implementation-Version':'1.0'
+        )
+
+
+        //provide manifest with such attributes as 'Implementation-Title', 'Implementation-Version'
+        version = '1.0'
+    }
+}
