@@ -25,6 +25,7 @@ publishing {
 
 dependencies {
     implementation project(path: ':utils')
+    testImplementation('org.junit.jupiter:junit-jupiter:5.8.1')
 }
 
 
