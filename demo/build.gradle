@@ -33,7 +33,9 @@ dependencies {
 
 
 }
-
+test {
+    useJUnitPlatform()
+}
 
 jar {
     manifest {
