@@ -8,7 +8,10 @@ public class Utils {
 
   public static boolean isAllPositiveNumbers (List<String> args) {
     for (String s : args) {
-      if (!isPositiveNumber(s)) return false;
+      if (s.isEmpty() || s==null) continue;
+      if (!isPositiveNumber(s)) {
+        return false;
+      }
     }
     return true;
   }
